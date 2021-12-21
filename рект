@@ -1,0 +1,21 @@
+class Rect (var x1: Int, var y1: Int, var width: Int, var height: Int): Transforming, Figure (1) {
+    lateinit имя переменной: Строка
+    конструктор (rect: Rect): this (rect.x1, rect.y1, rect.width, rect.height)
+    переопределить забавный ход (dx: Int, dy: Int) {
+        x1 + = dx; y1 + = dy
+    }
+    override fun resize (zoom: Int) {
+        ширина = масштаб * ширина; высота = масштаб * высота
+    }
+    override fun area (): Float {
+        return (ширина * высота) .toFloat ()
+    }
+    переопределить развлечение rotate (direction: RotateDirection, centerX: Int, centerY: Int) {
+        when (direction) {
+            RotateDirection.CLOCKWISE -> y1 = centerY + (centerX - (x1 + ширина))
+            RotateDirection.CLOCKWISE -> x1 = centerX - высота / 2
+            RotateDirection.COUNTERCLOCKWISE -> y1 = centerY - (centerX - (x1 + ширина))
+            RotateDirection.COUNTERCLOCKWISE -> x1 = centerX - ширина / 2
+        }
+    }
+}
