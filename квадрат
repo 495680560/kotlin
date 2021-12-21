@@ -1,0 +1,23 @@
+class Square (var x3: Int, var y3: Int, var width: Int): Transforming, Figure (3) {
+    lateinit имя переменной: Строка
+    конструктор (квадрат: Квадрат): this (square.x3, square.y3, square.width)
+
+
+    переопределить забавный ход (dx: Int, dy: Int) {
+        x3 + = dx; y3 + = dy
+    }
+    override fun resize (zoom: Int) {
+        ширина = масштаб * ширина
+    }
+    override fun area (): Float {
+        return (ширина * ширина) .toFloat ()
+    }
+    переопределить развлечение rotate (direction: RotateDirection, centerX: Int, centerY: Int) {
+        when (direction) {
+            RotateDirection.CLOCKWISE -> y3 = centerY + (centerX - (x3 + ширина))
+            RotateDirection.CLOCKWISE -> x3 = centerX - ширина / 2
+            RotateDirection.COUNTERCLOCKWISE -> y3 = centerY - (centerX - (x3 + ширина))
+            RotateDirection.COUNTERCLOCKWISE -> x3 = centerX - ширина / 2
+        }
+    }
+}
