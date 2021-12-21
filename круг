@@ -1,0 +1,26 @@
+class Circle (var x2: Int, var y2: Int, var radius: Int): Transforming, Figure (2) {
+    lateinit имя переменной: Строка
+
+    конструктор (circle: Circle): this (circle.x2, circle.y2, circle.radius)
+
+    переопределить забавный ход (dx: Int, dy: Int) {
+        х2 + = дх; y2 + = dy
+    }
+
+    override fun resize (zoom: Int) {
+        радиус = масштаб * радиус
+    }
+
+    override fun area (): Float {
+        return (3,14 * радиус) .toFloat ()
+    }
+
+    переопределить развлечение rotate (direction: RotateDirection, centerX: Int, centerY: Int) {
+        when (direction) {
+            RotateDirection.CLOCKWISE -> y2 = centerY + (centerX - (x2 + радиус))
+            RotateDirection.CLOCKWISE -> x2 = centerX
+            RotateDirection.COUNTERCLOCKWISE -> y2 = centerY - (centerX - (x2 + радиус))
+            RotateDirection.COUNTERCLOCKWISE -> x2 = centerX
+        }
+    }
+}
