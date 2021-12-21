@@ -1,0 +1,9 @@
+interface Transforming {
+        забавный ход (dx: Int, dy: Int)
+        забавное изменение размера (масштаб: Int)
+        весело повернуть (направление: RotateDirection, centerX: Int, centerY: Int)
+}
+
+enum class RotateDirection {
+        ПО ЧАСОВОЙ СТРЕЛКЕ, ПРОТИВ ЧАСОВОЙ СТРЕЛКИ
+}
